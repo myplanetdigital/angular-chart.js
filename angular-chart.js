@@ -275,6 +275,8 @@
     }
 
     function setLegend (elem, chart) {
+      if (usingExcanvas) return;  // the code below has a bug in IE8
+
       var $parent = elem.parent(),
           $oldLegend = $parent.find('chart-legend'),
           legend = '<chart-legend>' + chart.generateLegend() + '</chart-legend>';
